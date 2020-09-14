@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+      <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    
+    <h:head>
+        <title> search Attraction By Tag</title>
+         <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="refresh"/>
+      
+    </h:head>
+     <h:body class ="new-class">
+         <style>
+            .new-class{
+                background-color:#eee8c8; 
+                color: #000000;
+                
+            }
+            .button{
+                background-color:#eee8c8; 
+                width:80px;
+            }
+            .home-class{
+                background-color:#475144; 
+                
+                            }
+           
+        </style>
+        <h:form>
+            <h:form>
+                    <nav class="navbar navbar-dark bg-dark">
+        <h:commandButton id="return" value="Home" class='btn btn-success pull-right'
+                                 action="welcome.xhtml" />
+                    </nav>
+                <br></br><br></br>
+            </h:form>
+        
+           
+            <h:dataTable id="busSysCrit" 
+                 rows ="#{login.theLoginAccount.getAttractionTag().size()}" 
+            value="#{login.theLoginAccount.getAttractionTag()}" var="attraction" border="2" cellspacing="4" cellpadding="1" styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row" >  
+                <h:column>  
+                          <f:facet name="header">Name</f:facet>
+         <h:outputText styleClass="dataTableOutputText" 
+                      id="strvalue1" value="#{attraction.name}"/> 
+         </h:column>
+                 &nbsp;&nbsp;
+                 <h:column>
+                        <f:facet name="header">Score</f:facet>
+        <h:outputText styleClass="dataTableOutputText" 
+                      id="strvalue6" value="#{attraction.score}"/>  
+                </h:column>  
+             <h:column>
+                       <f:facet name="header">View</f:facet>
+                      <h:commandButton id="ViewAttraction" value="ViewAttraction" action="#{login.theLoginAccount.setSearchattraction(attraction.name)}"></h:commandButton>
+                       
+        
+                </h:column>
+            </h:dataTable> 
+           <br></br>
+            <br></br>
+            <br></br>
+        
+            
+            
+           
+                    
+        </h:form>
+     </h:body>
+</html>
+

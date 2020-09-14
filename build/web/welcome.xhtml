@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+  
+    <h:head>
+       <title>Welcome</title>
+        <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="refresh" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+     <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+ 
+    </h:head>
+    <h:body>
+        
+        <h:form>
+               <nav class="navbar navbar-dark bg-dark">
+                 
+       
+             <h:commandButton id="createAttraction" value="Create Attraction" class='btn btn-success pull-right'
+                              action="Create_Attraction.xhtml" />  <br></br><br></br>
+                
+            &nbsp;&nbsp;
+              
+                <h:commandButton id="searchAttractionbytag" value="searchAttractionByTag"  class='btn btn-success pull-right'
+                                 action="tag.xhtml" />   <br></br><br></br>
+              
+                     &nbsp;&nbsp;
+                <h:commandButton id="searchAttractionbycity" value="searchAttractionByCity" class='btn btn-success pull-right' 
+                                 action="city.xhtml" />   <br></br><br></br>
+                   &nbsp;&nbsp;
+               
+                 <h:commandButton id="postreview" value="Post a review"  class='btn btn-success pull-right'
+                                 action="postreview.xhtml" />   <br></br><br></br>
+               &nbsp;&nbsp;
+                 <h:commandButton id="favourite" value="favouriteDestination" class='btn btn-success pull-right' 
+                                 action="favourite.xhtml" />   <br></br><br></br>
+               &nbsp;&nbsp;
+               <h:commandButton id="saveAttraction" value="saveAttractionToYourFavourite"  class='btn btn-success pull-right'
+                                 action="addAttractionFavourite.xhtml" />   <br></br><br></br>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             
+               <h:commandButton id="SignOut" value="Sign Out"  class='btn btn-success pull-right'
+                                action="#{login.theLoginAccount.signOut()}" />     <br></br><br></br>
+               </nav> 
+    </h:form>
+        <h:form> 
+              <h:graphicImage value="Trip.jpg.png" />
+            <h1>Welcome, #{login.theLoginAccount.user_Name}</h1>
+       
+             <h:form>
+            
+                 <h1>You May Like!!</h1>
+             
+            <h:dataTable id="busSysCrit" 
+                 rows ="#{login.theLoginAccount.youMayLike().size()}" 
+                 value="#{login.theLoginAccount.youMayLike()}" var="attraction" border="2" cellspacing="4" cellpadding="1" styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row">  
+                <h:column>  
+                    <f:facet name="header">Name</f:facet>
+                    <h:outputText styleClass="dataTableOutputText" 
+                      id="strvalue1" value="#{attraction.name}"/> 
+         </h:column>  
+                   
+                 <h:column>
+                           <f:facet name="header">Score</f:facet>
+                     <h:outputText styleClass="dataTableOutputText" 
+                              id="strvalue3" value="#{attraction.score}"/> 
+                    
+                </h:column>
+                <h:column>
+                      <f:facet name="header">View</f:facet>
+                      <h:commandButton id="ViewAttraction" value="ViewAttraction" action="#{login.theLoginAccount.setSearchattraction(attraction.name)}"></h:commandButton>
+                </h:column>
+            </h:dataTable>
+               
+            
+        
+            
+            <br></br>
+            <br></br>
+            <br></br>
+           
+                    
+       
+        
+            
+                    </h:form>
+        </h:form>
+    </h:body>
+        
+</html>
+

@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+     <h:head>
+        <title>Login</title>
+        <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="refresh" />
+ 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
+ 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+
+    </h:head>
+   <h:body>
+        
+            <!--  -->
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Sign In</h3>
+                    
+                </div>
+                <div class="card-body">
+                    <h:form>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+
+                            <h:inputText id="id" required="true" requiredMessage="The ID field cannot be empty"
+                                title="Please enter your ID" value="#{login.user_Name}"
+                                validatorMessage="The ID must be between 3 and 10 characters" class="form-control" style="color: white">
+                                <f:validateLength maximum="10" minimum="3" />
+                            </h:inputText>
+
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+
+                            <h:inputSecret value="#{login.password}" required="true"
+                                requiredMessage="password is required" class="form-control" style="color: white"></h:inputSecret>
+                        </div>
+
+                        <div class="form-group">
+                            <h:commandButton id="submit" value="Sign In" action="#{login.Login()}"
+                                class="btn float-right login_btn" />
+                        </div>
+                    </h:form>
+                </div>
+                    <div class="d-flex justify-content-center links">
+                        Don't have an account?<h:link outcome="Web.xhtml">Register</h:link>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                           Forgot your password?<h:link outcome="resetPassword.xhtml">Reset Password</h:link>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="section cyan darken-2 white-text center">
+            <p class="flow-text">Trip Advisor &copy; 2020</p>
+        </footer>
+</h:body>
+</html>
+
+
+

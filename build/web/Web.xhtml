@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title> Registration page for Trip Advisor</title>
+         <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="refresh"/>
+             <link rel="stylesheet" type="text/css" href="./css/style.css" />
+      
+    </h:head>
+    <h:body class ="new-class">
+         <style>
+            .new-class{
+                background-color:#eee8c8; 
+                color: #000000;
+                
+            }
+            .button{
+                background-color:#eee8c8; 
+                width:80px;
+            }
+            .home-class{
+                background-color:#475144; 
+                
+                            }
+           
+        </style>
+        <h:form>
+           <h1>Create a new online access account!</h1>
+           <h3>Please enter User_Name:</h3>
+             <h:inputText id = "user_name" label="user_name" required="true"  requiredMessage="The name field cannot be empty"
+                        title="Please enter your UserName" value="#{createNewUser.user_Name}" validatorMessage="The ID must be between 3 and 10 characterswith at least one digit, one upper case letter, one lower case letter and one special symbol (“@#$%”)">
+                    <f:validateLength maximum="10" minimum="3" />
+                      <f:validateRegex pattern = "((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{3,10})" />
+             </h:inputText>
+
+             <h3> Please enter the name </h3>
+             <h:inputText id = "name" label="enter name" required="true" requiredMessage="The name field cannot be empty"
+                        title="Please enter your Name" value="#{createNewUser.name}"/>
+             
+             <h3>Please enter the password</h3>
+             <h:inputSecret id = "password" label="password" required="true"  requiredMessage="The name field cannot be empty"
+                        title="Please enter your password" value="#{createNewUser.password}"
+                        validatorMessage="The Password must be between 4 and 8 characterswith at least one digit, one upper case letter, one lower case letter and one special symbol (“@#$%”)">
+                   <f:validateRegex pattern = "((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{4,8})">
+                   </f:validateRegex>
+             </h:inputSecret>
+             
+             <h3>Please enter  Tag1:</h3>
+               <h:selectOneMenu value="#{createNewUser.tag1}">
+    <f:selectItem itemValue="History Buff" itemLabel="History Buff" />
+    <f:selectItem itemValue="Beach Goer" itemLabel="Beach Goer" />
+    <f:selectItem itemValue="Museum" itemLabel="Museum" />
+      <f:selectItem itemValue="Family Vacationer " itemLabel="Family Vacationer " />
+       <f:selectItem itemValue="Nature Lover " itemLabel="Nature Lover" />
+        <f:selectItem itemValue="Urban Explorer " itemLabel="Urban Explorer " />
+          <f:selectItem itemValue="Shopping Fanatic " itemLabel="Shopping Fanatic" />
+      
+   
+</h:selectOneMenu>
+             <h3>Please enter Tag2:</h3>
+               <h:selectOneMenu value="#{createNewUser.tag2}">
+    <f:selectItem itemValue="History Buff" itemLabel="History Buff" />
+    <f:selectItem itemValue="Beach Goer" itemLabel="Beach Goer" />
+    <f:selectItem itemValue="Museum" itemLabel="Museum" />
+      <f:selectItem itemValue="Family Vacationer " itemLabel="Family Vacationer " />
+       <f:selectItem itemValue="Nature Lover " itemLabel="Nature Lover" />
+        <f:selectItem itemValue="Urban Explorer " itemLabel="Urban Explorer " />
+          <f:selectItem itemValue="Shopping Fanatic " itemLabel="Shopping Fanatic" />
+      
+   
+</h:selectOneMenu>
+             
+                <br></br><br></br>
+          
+                <h:commandButton type ="submit" value ="submit" action ="confirmation1.xhtml"/>
+            
+        </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+         <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    
+    <title>Show Attraction By city</title>
+      <h:body class ="new-class">
+         <style>
+            .new-class{
+                background-color:#eee8c8; 
+                color: #000000;
+                
+            }
+            .button{
+                background-color:#eee8c8; 
+                width:80px;
+            }
+            .home-class{
+                background-color:#475144; 
+                
+                            }
+           
+        </style>
+        <h:form>
+        
+           
+            <h:dataTable id="busSysCrit" 
+                 rows ="#{login.theLoginAccount.goToMyFavourite().size()}" 
+            value="#{login.theLoginAccount.goToMyFavourite()}" var="favourite">  
+                <h:column>  
+                    <f:facet name="header">Attraction Name</f:facet>
+        <h:outputText styleClass="dataTableOutputText" 
+                      id="strvalue1" value="#{favourite.name}"/> 
+         </h:column>  
+                <h:column>
+                       <f:facet name="header">View</f:facet>
+                      <h:commandButton id="ViewAttraction" value="ViewAttraction" action="#{login.theLoginAccount.setSearchattraction(favourite.name)}"></h:commandButton>
+                     
+        
+                </h:column>
+            </h:dataTable>  
+              &nbsp;
+                <h:commandButton id="return" value="Home"
+                                 action="welcome.xhtml" />
+            
+            <br></br>
+            <br></br>
+            <br></br>
+           
+                    
+        </h:form>
+      </h:body>
+</html>
+

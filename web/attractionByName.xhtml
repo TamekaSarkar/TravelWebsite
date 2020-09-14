@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+      <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    
+    <h:head>
+        <title> View Attraction</title>
+         <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="refresh"/>
+      
+    </h:head>
+     <h:body class ="new-class">
+         <style>
+            .new-class{
+                background-color:#eee8c8; 
+                color: #000000;
+                
+            }
+            .button{
+                background-color:#eee8c8; 
+                width:80px;
+            }
+            .home-class{
+                background-color:#475144; 
+                
+                            }
+           
+        </style>
+        <h:form>
+        
+           
+            <h:dataTable id="busSysCrit" 
+                 rows ="#{login.theLoginAccount.getAttractionByname().size()}" 
+            value="#{login.theLoginAccount.getAttractionByname()}" var="attraction" border="2" cellspacing="4" cellpadding="1" styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row">  
+                <h:column>  
+                     <f:facet name="header">Name</f:facet>
+         <h:outputText styleClass="dataTableOutputText" 
+                      id="strvalue1" value="#{attraction.name}"/> 
+                </h:column>
+                <h:column>
+                     <f:facet name="header">City</f:facet>
+        <h:outputText styleClass="dataTableOutputText" 
+                      id="strvalue2" value="#{attraction.city}"/> 
+                </h:column>
+            <h:column> 
+                 <f:facet name="header">State</f:facet>
+        <h:outputText styleClass="dataTableOutputText" 
+                      id="strvalue3" value="#{attraction.state}"/>  
+          </h:column>
+            <h:column> 
+                 <f:facet name="header">Description</f:facet>
+        <h:outputText styleClass="dataTableOutputText" 
+                      id="strvalue4" value="#{attraction.description}"/>  
+         </h:column>
+            <h:column> 
+                 <f:facet name="header">Tag</f:facet>
+        <h:outputText styleClass="dataTableOutputText" 
+                      id="strvalue5" value="#{attraction.tag}"/>  
+     </h:column>
+            <h:column> 
+                 <f:facet name="header">Score</f:facet>
+        <h:outputText styleClass="dataTableOutputText" 
+                      id="strvalue6" value="#{attraction.score}"/>  
+                </h:column>  
+                <h:column>
+                       <f:facet name="header">Post Review</f:facet>
+                      <h:commandButton id="PostReview1" value="Post Review" action="#{login.theLoginAccount.setReviewAttractionName(attraction.name)}"></h:commandButton>
+                </h:column>
+           
+            <h:column>
+                       <f:facet name="header">Add favourite</f:facet>
+                      <h:commandButton id="AddFavourite1" value="Add Favourite" action="#{login.theLoginAccount.setFavAttraction(attraction.name)}"></h:commandButton>
+             </h:column>
+            </h:dataTable> 
+            <br></br>
+   
+        </h:form>
+     </h:body>
+</html>
+

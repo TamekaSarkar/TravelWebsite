@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <h:head>
+        <title> Post a Review</title>
+         <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="refresh"/>
+      
+    </h:head>
+            <h:body class ="new-class">
+         <style>
+            .new-class{
+                background-color:#eee8c8; 
+                color: #000000;
+                
+            }
+            .button{
+                background-color:#eee8c8; 
+                width:80px;
+            }
+            .home-class{
+                background-color:#475144; 
+                
+                            }
+           
+        </style>
+        <h:form>
+            
+           <h3>Please enter Attraction Name</h3>
+             <h:inputText id = "Name" required="true"  requiredMessage="The name field cannot be empty"
+                          title="Please enter Attraction Name" value="#{login.theLoginAccount.attractionName}"/>
+
+             <h3>Please enter  a Rating between 0 to 5</h3>
+             <h:inputText id = "Score" required="true"  requiredMessage="The score field cannot be empty"
+                          title="Please enter your Score" value="#{login.theLoginAccount.rating}"/>
+             <h3>Please enter a comments</h3>
+             <h:inputTextarea id = "comments" required="true"  requiredMessage="The comments field cannot be empty"
+                          title="Please enter your comments" cols="14" rows="4" style="width:150" value="#{login.theLoginAccount.comments}"/>
+            <!-- <h3>Please enter  a Date (YYYY-MM-DD)</h3>
+             <h:inputText id = "Description" required="true"  requiredMessage="The date field cannot be empty"
+                          title="Please enter a date" value="#{login.theLoginAccount.date}">
+                  
+             </h:inputText>-->
+             
+             <br></br><br></br>
+          
+              <h:commandButton type ="submit" value ="submit" action ="#{login.theLoginAccount.postReview()}"/>
+              &nbsp;&nbsp;
+               <h:commandButton id="return" value="Home" class='btn btn-success pull-right'
+                                 action="welcome.xhtml" />
+        
+            
+        </h:form>
+               
+    </h:body>
+</html>
+
+

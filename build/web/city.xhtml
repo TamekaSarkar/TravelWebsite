@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+     <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <h:head>
+        <title>Enter city</title>
+    </h:head>
+    <h:body>
+          <h:form>
+       <p>Please enter city to search attraction<br></br>
+                  <h:inputText id="searchcity" required ="true" 
+                       requiredMessage="The searchcity field cannot be empty"
+                        title="Please enter your search city"
+                        value="#{login.theLoginAccount.searchcity}"/><br></br>
+                   <h:commandButton id="getattraction" value="getattraction"
+                           action="searchAttractionCity.xhtml" />  
+       </p>
+          </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <h:head>
+        <title>Admin page</title>
+    </h:head>
+    <h:body class ="new-class">
+         <style>
+            .new-class{
+                background-color:#eee8c8; 
+                color: #000000;
+                
+            }
+            .button{
+                background-color:#eee8c8; 
+                width:80px;
+            }
+            .home-class{
+                background-color:#475144; 
+                
+                            }
+           
+        </style>
+        <h:form>
+        
+             <p>Number of Pending Attractions: #{login.adm.ApproveAttraction().size()}</p>
+            <h:dataTable id="busSysCrit" 
+                 rows ="#{login.adm.ApproveAttraction().size()}" 
+            value="#{login.adm.ApproveAttraction()}" var="att" border="2" 
+            cellspacing="4" cellpadding="1" styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row">  
+                <h:column>  
+                <f:facet name="header">Name</f:facet>
+         <h:outputText styleClass="dataTableOutputText" 
+                      id="strvalue1" value="#{att.name}"/> 
+                </h:column>
+                <h:column>
+              <f:facet name="header">City</f:facet>
+         <h:outputText styleClass="dataTableOutputText" 
+                       id="strvalue2" value="#{att.city}"/> 
+          </h:column>
+                <h:column>
+                    <f:facet name="header">State</f:facet>
+         <h:outputText styleClass="dataTableOutputText" 
+                       id="strvalue3" value="#{att.state}"/> 
+          </h:column>
+                <h:column>
+                    <f:facet name="header">Description</f:facet>
+         <h:outputText styleClass="dataTableOutputText" 
+                       id="strvalue4" value="#{att.description}"/> 
+          </h:column>
+                <h:column>
+                    <f:facet name="header">Score</f:facet>
+         <h:outputText styleClass="dataTableOutputText" 
+                       id="strvalue5" value="#{att.score}"/> 
+          </h:column>
+                <h:column>
+                    <f:facet name="header">Status</f:facet>
+         <h:outputText styleClass="dataTableOutputText" 
+                       id="strvalue6" value="#{att.status}"/> 
+          </h:column>
+                <h:column>
+                    <f:facet name="header">Approve</f:facet>
+                    <h:commandButton id="approve" value="Approve"
+                           action="#{login.adm.approved(att.name)}" />  
+           </h:column>
+                <h:column>
+                    <f:facet name="header">Reject</f:facet>
+            <h:commandButton  id="reject" value="reject"
+                             action="#{login.adm.rejected(att.name)}" />    
+          
+                </h:column>  
+            </h:dataTable>  
+            
+            
+            <br></br>
+            <br></br>
+            <br></br>
+           
+                    
+        </h:form>
+    </h:body>
+</html>
+

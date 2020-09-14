@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+      <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    
+    <title>you may like</title>
+    <h:body class ="new-class">
+         <style>
+            .new-class{
+                background-color:#eee8c8; 
+                color: #000000;
+                
+            }
+            .button{
+                background-color:#eee8c8; 
+                width:80px;
+            }
+            .home-class{
+                background-color:#475144; 
+                
+                            }
+           
+        </style>
+        <h:form>
+            
+            
+            <h:dataTable id="busSysCrit" 
+                 rows ="#{login.theLoginAccount.youMayLike().size()}" 
+                 value="#{login.theLoginAccount.youMayLike()}" var="attraction">  
+                <h:column>  
+                    <h:outputText styleClass="dataTableOutputText" 
+                      id="strvalue1" value="#{attraction.name}"/> 
+        
+                </h:column>  
+            </h:dataTable>  
+            
+        
+            
+            <br></br>
+            <br></br>
+            <br></br>
+           
+                    
+        </h:form>
+    </h:body>
+</html>
+
